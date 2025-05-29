@@ -1,2 +1,2 @@
-# DSC80_Final_Peoject
+# DSC80_Final_Project
 recipe-ratings-analysis
