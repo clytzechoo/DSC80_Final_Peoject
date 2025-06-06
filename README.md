@@ -38,41 +38,41 @@ We are predicting **average rating** (regression task).
 - **result:**
 Sacurated Fat Proportion Results:
 
-Present mean: 0.164344
+  Present mean: 0.164344
 
-Missing mean: 0.170520
+  Missing mean: 0.170520
 
-Observed statistic: 0.006176
+  Observed statistic: 0.006176
 
-P-value: 0.010989
+  P-value: 0.010989
 
-Conclusion: Reject null
+  Conclusion: Reject null
 
-Number of Steps Results:
+  Number of Steps Results:
 
-Present mean: 10.058948
+  Present mean: 10.058948
 
-Missing mean: 11.551936
+  Missing mean: 11.551936
 
-Observed statistic: 1.492987
+  Observed statistic: 1.492987
 
-P-value: 0.000999
+  P-value: 0.000999
 
-Conclusion: Reject null
+  Conclusion: Reject null
 
-Sacurated Fat Recipes: 4.6317
+  Sacurated Fat Recipes: 4.6317
 
-Common Recipes: 4.6161
+  Common Recipes: 4.6161
 
-Observed statstics: 0.0156
+  Observed statstics: 0.0156
 
-P_value: 0.0020
+  P_value: 0.0020
 
-Conclusion: Reject null
+  Conclusion: Reject null
 
-High sacurated fat recipes: 48174
+  High sacurated fat recipes: 48174
 
-Common recipes: 32999
+  Common recipes: 32999
 
 
 - **conclusion:** Based on α=0.05, from the hypothesis test above, we reject H0 and have enough evidence that the difference in ratings between high saturated fat and low fat.
