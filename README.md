@@ -5,7 +5,7 @@ recipe-ratings-analysis
 
 Welcome to our DSC 80 Final Project!  
 We explore what factors influence the average rating of recipes on food.com using real-world recipe and review data.
-
+https://github.com/clytzechoo/DSC80_Final_Project/edit/main/README.md
 ---
 
 ## 📊 Introduction
