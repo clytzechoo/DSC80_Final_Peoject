@@ -10,13 +10,43 @@ https://github.com/clytzechoo/DSC80_Final_Project/edit/main/README.md
 
 ## 📊 Introduction
 
-We investigate whether characteristics like calorie count and preparation time impact how highly a recipe is rated. Our main goal is to find useful patterns and build a model to predict average ratings based on recipe features.
+Food is an essential part of our daily lives, and cooking serves as a hobby that brings joy and a sense of accomplishment to many. While numerous people are fond of fatty foods due to their delicious taste and the satisfaction they bring when eaten, this type of food, particularly those rich in saturated fat, contains more calories. The health risks associated with them, such as cardiovascular diseases, diabetes, and obesity, cannot be ignored. A Harvard University study published in JAMA Internal Medicine in 2016 showed that a long - term diet high in saturated fat is linked to a 2 - fold increased risk of coronary artery calcification. Another study in Diabetes Care in 2019 found that when consuming more than 1,000 calories per day for five days, insulin sensitivity decreased by 27%.
+With this knowledge in mind, we aim to explore the relationship between the rating of a recipe and the amount of calories and saturated fat in it. Our goal is to predict the average rating of a recipe and understand its connection with the calories and saturated fat content in recipes. To achieve this, we are analyzing two datasets that include recipes and ratings posted on food.com since 2008.
+
+The first dataset, **recipes**, contains 83782 rows, indicating 83782 unique recipes, with 10 columns. 
+
+The second dataset, **interactions**, contains 731927 rows and each row contains a review from the user on a specific recipe.
+
+we are investigating whether people rate high calorie recipes and the common calorie recipes on the same scale. To facilitate the investigation of our question, we separated the values in the **'nutrition'** columns into the corresponding columns, **'calories (#)', 'total fat (PDV)', 'sugar (PDV)', scurated fat (PDV)**, etc. PDV, or percent daily value shows how much a nutrient in a serving of food contributes to a total daily diet. Moreover, we calculated the proportion of sacurated fat in terms of calories out of the total calories of a given recipe and stored the information in a new column, **'prop sacurated fat'**. because high scureated fat in here will be referring to the recipes with value **'prop_sugar'** higher than the average 'prop_sugar'. The most relevant columns to answer our question are **'calories(#)', 'scureated fat (PDV)', 'prop scurated fat'**, described above, **'rating'**, which is the rating that user gave on a recipe, and **'avg_rating'**, which are the average of the ratings on each unique recipes.
+
+Our research could lead to future work on diving deeper into how much awareness people have on the negative health effects of high colorie recipes.
 
 ## 🧼 Data Cleaning and Exploratory Data Analysis
 
-- Parsed the `nutrition` column into separate numeric fields (e.g., calories, sugar, protein).
-- Removed invalid ratings (rating = 0).
-- Merged recipe data with average user ratings.
+we conducted the following data cleaning steps:
+
+  1. Left merge **'recipes', 'interactions'** two datasets.
+  2. Replace 0 rating to np.nan.
+  3. Get average rating for each recipe and add avg_rating to recipes dataset.
+  4. Retrieve data from **nutrition** list-like string.
+  5. Seperate values for research to series: **calories, total fat, protein, sacurated fat, carbohydrates**.
+     
+      We applied a **lambda** function then converted the columns to floats.
+  6. Add **'prop scurated fat'** to the dataframe.
+     
+      prop sacurated fat is the proportion of sacurated fat of the total calories in a recipe. We use the values in the **scurated fat (PDV)** column to divide by 100% to get it in the decimal form. Then, we multiply by 20 to convert the values to grams of sacurated fat since 20 grams of scurated fat is the 100% daily value (PDV). We got this value of 20 grams from experimenting on food.com with different amounts of scurated fat in a recipe. The experimentation allows us to understand the nutrition formula used on the website for recipes. Lastly, we multiply by 9 since there are 9 calories in 1 gram of sugar. After all these conversions, we end up with the number of calories of scurated fat, so we can divide by the total amount of calories in the recipe to get the proportion of scurated fat of the total calories. It is convenient to show the values will be between 0 and 1.
+  7. Add **'is_high_sacurated_fat'** to the dataframe.
+
+      'is_high_sacurated_fat' is a boolean column checking if proportion of sacurated fat lager than 10% of calories. This step separates the recipes into two groups, ones that are high sacurated fat and ones that are not.
+  8. Add **'is_high_calorie'** to the dataframe.
+
+      'is_high_calorie' is a boolean column checking if calories of recipe more than 600. This step separates the recipes into two groups, ones that are high calorie and ones that are not.
+  9. Add **'is_vegan'** to the dataframe.
+
+      'is_vegan' is a boolean column checking if **'vegan'** is in tags of recpie. This step separates the recipes into two groups, ones that are vegan and ones that are not.
+  10. Add **'is_quick'** to the dataframe.
+
+      'is_quick' is a boolean column checking if **'quick'** is in tags of recpie. This step separates the recipes into two groups, ones that are quick and ones that are not.
 
 **Preview of cleaned data:**
 (We will include markdown tables and plots here later.)
