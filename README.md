@@ -49,7 +49,7 @@ we conducted the following data cleaning steps:
       'is_quick' is a boolean column checking if **'quick'** is in tags of recpie. This step separates the recipes into two groups, ones that are quick and ones that are not.
 
 **Preview of cleaned data:**
-(We will include markdown tables and plots here later.)
+
 
 ## 📈 Hypothesis Testing
 
